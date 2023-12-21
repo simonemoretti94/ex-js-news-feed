@@ -56,8 +56,7 @@ const tags = [
                 <p id="published" class="col-12" >in data ${objectEl.published}</p>
                 <p id="content" class="col-12  mb-0">${objectEl.content}</p>
             </div>
-            <div class="card-body">
-                <img class="card-img-bottom" src="./assets/img/html_img/rubber-duck.jpg" alt="rubber-duck">
+            <div id="card-body${objectEl.id}" class="card-body">
             </div>
             <div id="card-footer${objectEl.id}" class="card-footer">
             </div>
@@ -68,6 +67,9 @@ const tags = [
          
         //appending buttons to injected template literal
         buttonsMaker(objectEl);
+
+        //appending img path to injected template literal
+        imgpathMaker(objectEl)
     };
 
     //card tag creator
@@ -114,6 +116,39 @@ const tags = [
         });
         
     };
+
+    //card img path creator
+
+    function imgpathMaker(cardMakerObject) {
+
+        const cardBody = document.getElementById(`card-body${cardMakerObject.id}`);
+
+        let path;
+
+        switch(cardMakerObject.id) {
+            case 1:
+                path = 'src="./assets/img/html_img/rubber-duck.jpg" alt="rubber-duck"';
+                break;
+            case 2:
+                path = 'src="./assets/img/html_img/kitchen-food.jpg" alt="kitchen-food"';
+                break;
+            case 3:
+                path = 'src="./assets/img/html_img/deep-sea.jpg" alt="deep-sea"';
+                break;
+            case 4:
+                path = 'src="./assets/img/html_img/modern-art.jpg" alt="modern-art"';
+                break;
+            default:
+                console.log('js.142 error switch');
+                break;
+        }
+
+        const imgPath = `
+        <img class="card-img-bottom" ${path}></img>
+        `;
+
+        cardBody.innerHTML = imgPath;
+    }
 
 
 
