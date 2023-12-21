@@ -84,6 +84,9 @@ const tags = [
             cardTags.push(i);
         }
 
+        //debugging counter
+        let counter = cardTags.length + 1;
+
         console.log(`card author, ${cardMakerObject.author} tags: `, cardTags);
 
         const cardFooter = document.getElementById(`card-footer${cardMakerObject.id}`);
@@ -91,11 +94,23 @@ const tags = [
         console.log('card-footer is connected: ', cardFooter.isConnected);
 
         cardTags.forEach(element => {
+
+            console.log('card tags row js.95: ', element);
+
             const tempBtn = `
             <button id="btn-${element}" class="btn btn-sm border-1 rounded-2 text-center text-white text-lowercase" >${element}</button>
             `;
 
+            
+            console.log('card tempBtn js.101: ', tempBtn);
+            
             cardFooter.innerHTML += tempBtn;
+
+            console.log('card footer js.109: ', cardFooter);
+
+            //counter for debugging
+            counter--;
+            console.log('counter js.110: ', counter);
         });
         
     };
