@@ -34,3 +34,39 @@ const tags = [
     },  
 ];
 
+//declaring functions
+
+    //card creator
+    function cardMaker (objectEl) {
+        const cardEl = `
+        <div class="card col-12 pt-2">
+            <div class="card-header pb-0">
+                <div class="wrapper col-12 d-flex flex-row">
+                    <p id="title" class="col-11 mb-1">${objectEl.title}</p>
+                    <i id="bookmark" class="col-1 fa-regular fa-bookmark"></i>
+                </div>
+                <p id="author" class="col-12 mb-0">pubblicato da ${objectEl.author}</p>
+                <p id="published" class="col-12" >in data ${objectEl.published}</p>
+                <p id="content" class="col-12  mb-0">${objectEl.content}</p>
+            </div>
+            <div class="card-body">
+                <img class="card-img-bottom" src="./assets/img/html_img/rubber-duck.jpg" alt="rubber-duck">
+            </div>
+            <div class="card-footer">
+                <button id="btn-geo" class="btn btn-sm border-1 rounded-2 text-center text-white text-lowercase" >geo</button>
+                <button id="btn-tech" class="btn btn-sm border-1 rounded-2 text-center text-white text-lowercase">tech</button>
+            </div>
+        </div>`;
+
+        containerEl.innerHTML = cardEl;
+    };
+
+
+//getting main_container
+const containerEl = document.getElementById('main_container');
+
+console.log(containerEl.isConnected);
+
+cardMaker(tags[0]);
+
+
