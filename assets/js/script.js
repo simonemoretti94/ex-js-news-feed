@@ -46,7 +46,7 @@ const tags = [
 
         //creating template literal
         const cardEl = `
-        <div class="card col-12 pt-2">
+        <div class="card col-12 pt-2 mt-4">
             <div class="card-header pb-0">
                 <div class="wrapper col-12 d-flex flex-row">
                     <p id="title" class="col-11 mb-1">${objectEl.title}</p>
@@ -59,7 +59,7 @@ const tags = [
             <div class="card-body">
                 <img class="card-img-bottom" src="./assets/img/html_img/rubber-duck.jpg" alt="rubber-duck">
             </div>
-            <div id="card-footer" class="card-footer">
+            <div id="card-footer${objectEl.id}" class="card-footer">
             </div>
         </div>`;
      
@@ -86,7 +86,7 @@ const tags = [
 
         console.log(`card author, ${cardMakerObject.author} tags: `, cardTags);
 
-        const cardFooter = document.getElementById('card-footer');
+        const cardFooter = document.getElementById(`card-footer${cardMakerObject.id}`);
 
         console.log('card-footer is connected: ', cardFooter.isConnected);
 
@@ -110,7 +110,11 @@ const containerEl = document.getElementById('main_container');
 
 console.log('container is connected: ', containerEl.isConnected);
 
-cardMaker(tags[0]);
+
+for(let i of tags) {
+    
+    cardMaker(i);
+};
 
 
 
