@@ -84,7 +84,7 @@ const tags = [
             cardTags.push(i);
         }
 
-        console.log(cardTags);
+        console.log(`card author, ${cardMakerObject.author} tags: `, cardTags);
 
         const cardFooter = document.getElementById('card-footer');
 
@@ -108,7 +108,7 @@ const tags = [
 //getting main_container
 const containerEl = document.getElementById('main_container');
 
-console.log(containerEl.isConnected);
+console.log('container is connected: ', containerEl.isConnected);
 
 cardMaker(tags[0]);
 
