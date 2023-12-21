@@ -6,23 +6,23 @@ const tags = [
         content: 'Un breve articolo sulla recente scoperta di una specie di papera di gomma mai vista prima.',
         tags: ['geo', 'tech'],
         author: 'Diana Rossi',
-        published: '2023-02-11',
+        published: '2023-01-15',
     },
     {
         id: 2,
-        title: 'Esplorando le profondità marine: il mistero degli abissi',
-        content: 'Esplorando le profondità marine: il mistero degli abissi',
-        tags: ['viaggi', 'geo'],
-        author: 'Fabio Mari',
-        published: '2023-03-14',
-    },
-    {
-        id: 3,
         title: 'Viaggio culinario: alla scoperta dei sapori perduti',
         content: 'Esplorazione di tradizioni culinarie dimenticate e la ricerca di sapori autentici',
         tags: ['cucina'],
         author: 'Marta Bianchi',
         published: '2023-04-20',
+    },
+    {
+        id: 3,
+        title: 'Esplorando le profondità marine: il mistero degli abissi',
+        content: 'Esplorando le profondità marine: il mistero degli abissi',
+        tags: ['viaggi', 'geo'],
+        author: 'Fabio Mari',
+        published: '2023-03-14',
     },
     {
         id: 4,
@@ -87,30 +87,30 @@ const tags = [
         //debugging counter
         let counter = cardTags.length + 1;
 
-        console.log(`card author, ${cardMakerObject.author} tags: `, cardTags);
+        console.log(`js.90 card author, ${cardMakerObject.author} tags: `, cardTags);
 
         const cardFooter = document.getElementById(`card-footer${cardMakerObject.id}`);
 
-        console.log('card-footer is connected: ', cardFooter.isConnected);
+        //console.log('card-footer is connected: ', cardFooter.isConnected);
 
         cardTags.forEach(element => {
 
-            console.log('card tags row js.95: ', element);
+            console.log('js.98 card tag: ', element);
 
             const tempBtn = `
             <button id="btn-${element}" class="btn btn-sm border-1 rounded-2 text-center text-white text-lowercase" >${element}</button>
             `;
 
             
-            console.log('card tempBtn js.101: ', tempBtn);
+            console.log('js.105 card tempBtn: ', tempBtn);
             
             cardFooter.innerHTML += tempBtn;
 
-            console.log('card footer js.109: ', cardFooter);
+            console.log('js.109 card footer: ', cardFooter);
 
             //counter for debugging
             counter--;
-            console.log('counter js.110: ', counter);
+            console.log('js.113 counter: ', counter);
         });
         
     };
@@ -123,11 +123,13 @@ const tags = [
 //getting main_container
 const containerEl = document.getElementById('main_container');
 
-console.log('container is connected: ', containerEl.isConnected);
+//console.log('container is connected: ', containerEl.isConnected);
 
 
 for(let i of tags) {
     
+    console.log('js. 131 object passed to function: ', i);
+
     cardMaker(i);
 };
 
