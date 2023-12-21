@@ -38,11 +38,12 @@ const tags = [
 
     //card creator
 
-    /**
-     * 
-     * @param {object} objectEl receive an object from 'tag' array
-     */
-    function cardMaker (objectEl) {
+/**
+ * 
+ * @param {object} objectEl receive an object from 'tag' array 
+ * @param {*} forCounter working script counter
+ */
+    function cardMaker (objectEl, forCounter) {
 
         //creating template literal
         const cardEl = `
@@ -70,6 +71,9 @@ const tags = [
 
         //appending img path to injected template literal
         imgpathMaker(objectEl)
+
+        /* END CARD STRUCTURING */
+        console.log('END CARD, iteration: ', forCounter);
     };
 
     //card tag creator
@@ -86,39 +90,42 @@ const tags = [
             cardTags.push(i);
         }
 
-        //debugging counter
-        let counter = cardTags.length + 1;
-
-        console.log(`js.90 card author, ${cardMakerObject.author} tags: `, cardTags);
+        console.log(`BUTTONSMAKERf card author, ${cardMakerObject.author} tags: `, cardTags);
 
         const cardFooter = document.getElementById(`card-footer${cardMakerObject.id}`);
 
         //console.log('card-footer is connected: ', cardFooter.isConnected);
 
+        //debug counter
+        let counter = cardTags.length -1;
+
         cardTags.forEach(element => {
 
-            console.log('js.98 card tag: ', element);
+            console.log('BUTTONSMAKERf card tag: ', element, 'iteration: ', counter);
+
+            counter--;
 
             const tempBtn = `
             <button id="btn-${element}" class="btn btn-sm border-1 rounded-2 text-center text-white text-lowercase" >${element}</button>
             `;
 
             
-            console.log('js.105 card tempBtn: ', tempBtn);
+            console.log('BUTTONSMAKERf card tempBtn: ', tempBtn);
             
             cardFooter.innerHTML += tempBtn;
 
-            console.log('js.109 card footer: ', cardFooter);
-
-            //counter for debugging
-            counter--;
-            console.log('js.113 counter: ', counter);
+            console.log('BUTTONSMAKERf card footer: ', cardFooter);
         });
         
     };
 
     //card img path creator
 
+
+    /**
+     * 
+     * @param {object} cardMakerObject receive the same object as cardMaker, but in order to perform different actions, as creating img's paths and adding them to card's body
+     */
     function imgpathMaker(cardMakerObject) {
 
         const cardBody = document.getElementById(`card-body${cardMakerObject.id}`);
@@ -139,13 +146,15 @@ const tags = [
                 path = 'src="./assets/img/html_img/modern-art.jpg" alt="modern-art"';
                 break;
             default:
-                console.log('js.142 error switch');
+                console.log('IMGPATHMAKERf error switch');
                 break;
         }
 
         const imgPath = `
         <img class="card-img-bottom" ${path}></img>
         `;
+
+        console.log('IMGPATHMAKERf img path: ', imgPath);
 
         cardBody.innerHTML = imgPath;
     }
@@ -160,12 +169,14 @@ const containerEl = document.getElementById('main_container');
 
 //console.log('container is connected: ', containerEl.isConnected);
 
+let counter = 0;
 
-for(let i of tags) {
+for(let index of tags) {
     
-    console.log('js. 131 object passed to function: ', i);
+    console.log('WORKINGSCRIPT object passed to function: ', index);
 
-    cardMaker(i);
+    counter++;
+    cardMaker(index, counter);
 };
 
 
