@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!--media query-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--stylesheet-->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/media_query.css">
+    
+    <!-- bootstrap css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- bootstrap javascript-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous" defer></script>
+
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <!--favourite icon-->
+    <link rel="icon" href="./assets/img/favicon.svg">
+
+    <!--javascript-->
+    <script src="./assets/js/script.js" defer ></script>
+    
+    <title>ex-js-news-feed</title>
+</head>
+<body>
+
+    <main id="site_main">
+
+        <div id="selectors" class="col-6 d-flex justify-content-between flex-row align-items-center mt-3 mb-auto mx-auto bg-white">
+            <div class="wrapper d-flex justify-content-center align-items-center">
+                <p class="col-5 text-right">Filtra per tags:</p>
+                <select class="col-5 text-center" name="tags" id="main_select">
+                    <option value="Tutti i tags">Tutti i tags</option>
+                </select>
+            </div>
+
+            <div class="wrapper d-flex justify-content-center align-items-center">
+                <button class="btn btn-check" ></button>
+                <p class="col-5 text-left">Solo news salvate</p>  
+            </div>
+
+        </div>
+
+        <div class="container col-6 my-3 mx-auto d-flex flex-column">
+            <div class="card col-12 pt-2">
+                <div class="card-header">
+                    <div class="wrapper col-12 d-flex flex-row">
+                        <p id="title" class="col-11">*</p>
+                        <i id="bookmark" class="col-1 fa-regular fa-bookmark"></i>
+                    </div>
+                    <p id="author" class="col-12" >*</p>
+                    <p id="published" class="col-12" >*</p>
+                    <p id="content" class="col-12">*</p>
+                </div>
+                <div class="card-body">
+                    <img class="card-img-bottom" src="./assets/img/html_img/rubber-duck.jpg" alt="rubber-duck">
+                </div>
+                <div class="card-footer">
+                    <button id="geo" class="btn btn-sm border-1 rounded-2 text-center text-white text-lowercase" >geo</button>
+                    <button id="tech" class="btn btn-sm border-1 rounded-2 text-center text-white text-lowercase">tech</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- /#site_main -->
+
+</body>
+</html>

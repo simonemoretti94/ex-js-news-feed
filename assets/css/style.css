@@ -1,0 +1,41 @@
+/* style */
+
+/* basic parameters */
+
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+    --bg-body-and-bookmark : #023047;
+    --bg-btn-green-custom: #008001;
+    --bg-btn-blue-custom: #000080;
+    --bg-btn-violet-custom: #800080;
+    --bg-btn-beige-custom: #f3a360;
+    --bg-btn-yellow-custom: #ffd601;
+}
+
+/* style */
+
+main {
+    background-color: var(--bg-body-and-bookmark);
+    overflow-x: none;
+    overflow-y: scroll;
+}
+
+#geo {
+    background-color: var(--bg-btn-green-custom);
+}
+
+#tech {
+    background-color: var(--bg-btn-blue-custom);
+}
+
+i#bookmark {
+    color: var(--bg-body-and-bookmark);
+    text-align: right;
+    font-size: 1.5rem;
+}
