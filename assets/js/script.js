@@ -34,11 +34,17 @@ const tags = [
     },  
 ];
 
-//declaring functions
+/* DECLARING FUNCTIONS */
 
     //card creator
+
+    /**
+     * 
+     * @param {object} objectEl receive an object from 'tag' array
+     */
     function cardMaker (objectEl) {
 
+        //creating template literal
         const cardEl = `
         <div class="card col-12 pt-2">
             <div class="card-header pb-0">
@@ -57,13 +63,19 @@ const tags = [
             </div>
         </div>`;
      
-        containerEl.innerHTML = cardEl;
+        //injecting template literal into container
+        containerEl.innerHTML += cardEl;
          
         //appending buttons to injected template literal
         buttonsMaker(objectEl);
     };
 
     //card tag creator
+
+    /**
+     * 
+     * @param {object} cardMakerObject receive the same object as cardMaker, but in order to perform different actions, as creating btn's and adding them to card's footer
+     */
     function  buttonsMaker(cardMakerObject){
         
         const cardTags = [];
@@ -90,7 +102,7 @@ const tags = [
 
 
 
-
+/* WORKING SCRIPT STARTS HERE */
 
 
 //getting main_container
@@ -100,11 +112,5 @@ console.log(containerEl.isConnected);
 
 cardMaker(tags[0]);
 
-
-
-/*
-    <button id="btn-${objectEl.tags[0]}" class="btn btn-sm border-1 rounded-2 text-center text-white text-lowercase" >${objectEl.tags[0]}</button>
-    <button id="btn-${objectEl.tags[1]}" class="btn btn-sm border-1 rounded-2 text-center text-white text-lowercase">${objectEl.tags[1]}</button>
-                */
 
 
