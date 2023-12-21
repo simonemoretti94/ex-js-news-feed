@@ -39,13 +39,6 @@ const tags = [
     //card creator
     function cardMaker (objectEl) {
 
-    const cardTags = [];
-    for(let i of objectEl.tags) {
-        cardTags.push(i);
-    }
-
-    console.log(cardTags);
-
         const cardEl = `
         <div class="card col-12 pt-2">
             <div class="card-header pb-0">
@@ -61,13 +54,43 @@ const tags = [
                 <img class="card-img-bottom" src="./assets/img/html_img/rubber-duck.jpg" alt="rubber-duck">
             </div>
             <div id="card-footer" class="card-footer">
-                <button id="btn-${objectEl.tags[0]}" class="btn btn-sm border-1 rounded-2 text-center text-white text-lowercase" >${objectEl.tags[0]}</button>
-                <button id="btn-${objectEl.tags[1]}" class="btn btn-sm border-1 rounded-2 text-center text-white text-lowercase">${objectEl.tags[1]}</button>
             </div>
         </div>`;
-
+     
         containerEl.innerHTML = cardEl;
+         
+        //appending buttons to injected template literal
+        buttonsMaker(objectEl);
     };
+
+    //card tag creator
+    function  buttonsMaker(cardMakerObject){
+        
+        const cardTags = [];
+        
+        for(let i of cardMakerObject.tags) {
+            cardTags.push(i);
+        }
+
+        console.log(cardTags);
+
+        const cardFooter = document.getElementById('card-footer');
+
+        console.log('card-footer is connected: ', cardFooter.isConnected);
+
+        cardTags.forEach(element => {
+            const tempBtn = `
+            <button id="btn-${element}" class="btn btn-sm border-1 rounded-2 text-center text-white text-lowercase" >${element}</button>
+            `;
+
+            cardFooter.innerHTML += tempBtn;
+        });
+        
+    };
+
+
+
+
 
 
 //getting main_container
@@ -76,5 +99,12 @@ const containerEl = document.getElementById('main_container');
 console.log(containerEl.isConnected);
 
 cardMaker(tags[0]);
+
+
+
+/*
+    <button id="btn-${objectEl.tags[0]}" class="btn btn-sm border-1 rounded-2 text-center text-white text-lowercase" >${objectEl.tags[0]}</button>
+    <button id="btn-${objectEl.tags[1]}" class="btn btn-sm border-1 rounded-2 text-center text-white text-lowercase">${objectEl.tags[1]}</button>
+                */
 
 
