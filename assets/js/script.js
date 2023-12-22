@@ -51,7 +51,7 @@ const tags = [
             <div class="card-header pb-0">
                 <div class="wrapper col-12 d-flex flex-row">
                     <p id="title" class="col-11 mb-1">${objectEl.title}</p>
-                    <i id="bookmark" class="col-1 fa-regular fa-bookmark"></i>
+                    <i id="bookmark${objectEl.id}" class="col-1 fa-regular fa-bookmark" onclick="bookmarkslistener(this.id)"></i>
                 </div>
                 <p id="author" class="col-12 mb-0">pubblicato da ${objectEl.author}</p>
                 <p id="published" class="col-12" >in data ${objectEl.published}</p>
@@ -161,6 +161,30 @@ const tags = [
 
 
 
+    //bookmarks listener function
+
+    /**
+     * 
+     * @param {string} id receive icon's id from onclick event into DOM, in order to save it into an array
+     */
+    function bookmarkslistener(id){
+        console.log('BOOKMARKSLISTENERf received id: ', id);
+    
+        //const bookmarks = document.querySelectorAll("i[id^='bookmark']");
+    
+        
+        if(bookMarksClick.includes(id)){
+            console.log('BOOKMARKSLISTENERf still contains: ', id);
+        }
+        else {
+            bookMarksClick.push(id);
+        }
+
+        console.log('BOOKMARKSLISTENERf array log: ', bookMarksClick);
+    };
+
+
+
 /* WORKING SCRIPT STARTS HERE */
 
 
@@ -179,5 +203,5 @@ for(let index of tags) {
     cardMaker(index, counter);
 };
 
-
-
+//bookmarks click array
+const bookMarksClick = [];
