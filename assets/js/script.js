@@ -43,7 +43,7 @@ const tags = [
  * @param {object} objectEl receive an object from 'tag' array 
  * @param {*} forCounter working script counter
  */
-    function cardMaker (objectEl, forCounter) {
+    function cardMaker (objectEl, ...forCounter) {
 
         //creating template literal
         const cardEl = `
@@ -199,6 +199,20 @@ const tags = [
         console.log('BOOKMARKSLISTENERf says: array log: ', bookMarksClick);
     };
 
+    function cardReMaker(value){
+        // if(value !== 'tutti i tags'){
+        //     containerEl.innerHTML = '';
+        // }
+        containerEl.innerHTML = '';
+
+        for(let index of tags){
+            if(index.tags.includes(value)){
+                console.log(index.tags);
+                cardMaker(index);
+            }
+        }
+    };
+
 
 
 /* WORKING SCRIPT STARTS HERE */
@@ -221,3 +235,20 @@ for(let index of tags) {
 
 //bookmarks click array
 const bookMarksClick = [];
+
+// select the select element and eleaborating input
+const typesSelectEl = document.getElementById('main_select');
+
+typesSelectEl.addEventListener('click', function(e){
+    e.preventDefault();
+
+    let value = e.target.value;
+
+    value = value.toLowerCase();
+    
+    console.log(value);
+    if(value !== 'tutti i tags'){
+        cardReMaker(value);
+    }
+})
+

@@ -78,3 +78,7 @@ p#content {
     font-size: 1rem;
     font-weight: 500;
 }
+
+select {
+    text-transform: lowercase;
+}

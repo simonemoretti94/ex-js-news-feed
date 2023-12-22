@@ -46,7 +46,7 @@
         <div id="selectors" class="col-6 d-flex justify-content-between flex-row align-items-center align-content-center mt-3 mb-auto mx-auto bg-white border rounded-2" style="height: 80px;" >
             <div class="wrapper col-5 d-flex justify-content-start align-items-start ms-4">
                 <p class="me-1" style="font-size: 1rem; text-align: right; width: auto;" >Filtra per tags:</p>
-                <select class="col-4 text-center mt-1" name="tags" id="main_select" style="font-size: .8rem; font-weight: 600;" >
+                <select  id="main_select" class="col-4 text-center mt-1" name="tags" style="font-size: .8rem; font-weight: 600;" >
                     <option value="Tutti i tags">Tutti i tags</option>
                     <option id="politica" value="Politica">Politica</option>
                     <option id="geo" value="Geo">Geo</option>
@@ -69,7 +69,7 @@
                 <div class="card-header">
                     <div class="wrapper col-12 d-flex flex-row">
                         <p id="title" class="col-11">*</p>
-                        <i id="bookmark-template" class="col-1 fa-regular fa-bookmark" onclick="bookmarslistener(this.id)" ></i>
+                        <i id="bookmark-template" class="col-1 fa-regular fa-bookmark" onclick="bookmarkslistener(this.id)" ></i>
                     </div>
                     <p id="author" class="col-12" >*</p>
                     <p id="published" class="col-12" >*</p>
