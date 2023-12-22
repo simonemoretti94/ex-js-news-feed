@@ -73,7 +73,16 @@ const tags = [
         imgpathMaker(objectEl)
 
         /* END CARD STRUCTURING */
-        console.log('END CARD, iteration: ', forCounter);
+        console.log('CARDMAKERf says:  END CARD, iteration: ', forCounter);
+
+        //verifying all card are created
+        if(counter === 4){
+            console.log(`CARDMAKERf says: All ${counter} of ${tags.length} object were converted in cards!`);
+        }
+        else
+        {
+            console.log(`CARDMAKERf says: I only created ${counter} of ${tags.length} cards!`);
+        }
     };
 
     //card tag creator
@@ -90,7 +99,7 @@ const tags = [
             cardTags.push(i);
         }
 
-        console.log(`BUTTONSMAKERf card author, ${cardMakerObject.author} tags: `, cardTags);
+        console.log(`BUTTONSMAKERf says: card author, ${cardMakerObject.author} tags: `, cardTags);
 
         const cardFooter = document.getElementById(`card-footer${cardMakerObject.id}`);
 
@@ -101,7 +110,7 @@ const tags = [
 
         cardTags.forEach(element => {
 
-            console.log('BUTTONSMAKERf card tag: ', element, 'iteration: ', counter);
+            console.log('BUTTONSMAKERf says: card tag: ', element, 'iteration: ', counter);
 
             counter--;
 
@@ -110,11 +119,11 @@ const tags = [
             `;
 
             
-            console.log('BUTTONSMAKERf card tempBtn: ', tempBtn);
+            console.log('BUTTONSMAKERf says: card tempBtn: ', tempBtn);
             
             cardFooter.innerHTML += tempBtn;
 
-            console.log('BUTTONSMAKERf card footer: ', cardFooter);
+            console.log('BUTTONSMAKERf says: card footer: ', cardFooter);
         });
         
     };
@@ -146,7 +155,7 @@ const tags = [
                 path = 'src="./assets/img/html_img/modern-art.jpg" alt="modern-art"';
                 break;
             default:
-                console.log('IMGPATHMAKERf error switch');
+                console.log('IMGPATHMAKERf says: error switch');
                 break;
         }
 
@@ -154,7 +163,7 @@ const tags = [
         <img class="card-img-bottom" ${path}></img>
         `;
 
-        console.log('IMGPATHMAKERf img path: ', imgPath);
+        console.log('IMGPATHMAKERf says: img path: ', imgPath);
 
         cardBody.innerHTML = imgPath;
     }
@@ -168,19 +177,19 @@ const tags = [
      * @param {string} id receive icon's id from onclick event into DOM, in order to save it into an array
      */
     function bookmarkslistener(id){
-        console.log('BOOKMARKSLISTENERf received id: ', id);
+        console.log('BOOKMARKSLISTENERf says: received id: ', id);
     
         //const bookmarks = document.querySelectorAll("i[id^='bookmark']");
     
         
         if(bookMarksClick.includes(id)){
-            console.log('BOOKMARKSLISTENERf still contains: ', id);
+            console.log('BOOKMARKSLISTENERf says: still contains: ', id);
         }
         else {
             bookMarksClick.push(id);
         }
 
-        console.log('BOOKMARKSLISTENERf array log: ', bookMarksClick);
+        console.log('BOOKMARKSLISTENERf says: array log: ', bookMarksClick);
     };
 
 
@@ -197,7 +206,7 @@ let counter = 0;
 
 for(let index of tags) {
     
-    console.log('WORKINGSCRIPT object passed to function: ', index);
+    console.log('WORKINGSCRIPT says: object passed to function: ', index);
 
     counter++;
     cardMaker(index, counter);
