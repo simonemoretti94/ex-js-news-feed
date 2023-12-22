@@ -200,15 +200,24 @@ const tags = [
     };
 
     function cardReMaker(value){
-        // if(value !== 'tutti i tags'){
-        //     containerEl.innerHTML = '';
-        // }
+        const noNewsH2 = document.getElementById('id_news');
+
+        if(value === 'politica'){
+            noNewsH2.classList.remove('d-none');
+        }
+
         containerEl.innerHTML = '';
 
         for(let index of tags){
             if(index.tags.includes(value)){
                 console.log(index.tags);
+                if(value !== 'politica' && !(noNewsH2.classList.contains('d-none'))){
+                    noNewsH2.classList.add('d-none');
+                }
                 cardMaker(index);
+                // if(!noNewsH2.classList.contains('d-none')){
+                //     noNewsH2.classList.add('d-none');
+                // }
             }
         }
     };
@@ -245,10 +254,25 @@ typesSelectEl.addEventListener('click', function(e){
     let value = e.target.value;
 
     value = value.toLowerCase();
-    
+
     console.log(value);
-    if(value !== 'tutti i tags'){
+
+    if(containerEl != '' && value === 'tutti i tags'){
+        for(let index of tags) {
+            cardMaker(index);
+        };
+        const noNewsH2 = document.getElementById('id_news');
+
+        if(!noNewsH2.classList.contains('d-none')){
+            noNewsH2.classList.add('d-none');
+        }
+    }
+    else if(value !== 'tutti i tags'){
         cardReMaker(value);
     }
+    
+    // if(value !== 'tutti i tags'){
+    //     cardReMaker(value);
+    // }
 })
 

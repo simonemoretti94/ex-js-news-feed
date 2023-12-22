@@ -21,6 +21,16 @@
 
 /* style */
 
+/* body {
+    background-color: var(--bg-body-and-bookmark);
+    width: 100vw;
+    height: 100vh;
+} */
+
+html {
+    background-color: var(--bg-body-and-bookmark);
+}
+
 main {
     background-color: var(--bg-body-and-bookmark);
     overflow-x: none;
