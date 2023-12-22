@@ -178,10 +178,17 @@ const tags = [
      */
     function bookmarkslistener(id){
         console.log('BOOKMARKSLISTENERf says: received id: ', id);
+
+        //changing bookmark icon's class
+        const tempI = document.getElementById(id);
+        console.log('BOOKMARKSLISTENERf says: tempI classlist:', tempI.classList);
+        tempI.classList.remove('fa-regular');
+        tempI.classList.add('fa-solid');
+
     
         //const bookmarks = document.querySelectorAll("i[id^='bookmark']");
     
-        
+        //verifying that id's bookmarks array includes or not input id
         if(bookMarksClick.includes(id)){
             console.log('BOOKMARKSLISTENERf says: still contains: ', id);
         }
