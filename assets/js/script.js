@@ -215,9 +215,6 @@ const tags = [
                     noNewsH2.classList.add('d-none');
                 }
                 cardMaker(index);
-                // if(!noNewsH2.classList.contains('d-none')){
-                //     noNewsH2.classList.add('d-none');
-                // }
             }
         }
     };
@@ -257,15 +254,19 @@ typesSelectEl.addEventListener('click', function(e){
 
     console.log(value);
 
-    if(containerEl != '' && value === 'tutti i tags'){
-        for(let index of tags) {
-            cardMaker(index);
-        };
+    if(containerEl != '' && value === 'tutti i tags' || containerEl == '' && value === 'tutti i tags'){
+        
         const noNewsH2 = document.getElementById('id_news');
 
         if(!noNewsH2.classList.contains('d-none')){
             noNewsH2.classList.add('d-none');
         }
+
+        containerEl = '';
+
+        for(let index of tags) {
+            cardMaker(index);
+        };
     }
     else if(value !== 'tutti i tags'){
         cardReMaker(value);
