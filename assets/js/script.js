@@ -254,7 +254,8 @@ typesSelectEl.addEventListener('click', function(e){
 
     console.log(value);
 
-    if(containerEl != '' && value === 'tutti i tags' || containerEl == '' && value === 'tutti i tags'){
+    /*if(containerEl != '' && value === 'tutti i tags' || containerEl == '' && value === 'tutti i tags'){*/
+    if(containerEl.innerHTML !== '' && value === '' || containerEl.innerHTML === '' && value === ''){
         
         const noNewsH2 = document.getElementById('id_news');
 
@@ -262,7 +263,7 @@ typesSelectEl.addEventListener('click', function(e){
             noNewsH2.classList.add('d-none');
         }
 
-        containerEl = '';
+        containerEl.innerHTML = '';
 
         for(let index of tags) {
             cardMaker(index);
