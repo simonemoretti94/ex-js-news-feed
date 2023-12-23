@@ -199,18 +199,27 @@ const tags = [
         console.log('BOOKMARKSLISTENERf says: array log: ', bookMarksClick);
     };
 
+    
+    /**
+     * 
+     * @param {string} value input received from tag select
+     * This function works in similar way as 'cardMaker', but creates only card which tag is compatible with chosen options.
+     */
     function cardReMaker(value){
         const noNewsH2 = document.getElementById('id_news');
 
+        //makes h2 news appear
         if(value === 'politica'){
             noNewsH2.classList.remove('d-none');
         }
 
+        //clear container in order to add new cards
         containerEl.innerHTML = '';
 
+        //creating only cards compatible with 'value' string passed to the function
         for(let index of tags){
             if(index.tags.includes(value)){
-                console.log(index.tags);
+                console.log('CARDREMAKERf index tags: ', index.tags);
                 if(value !== 'politica' && !(noNewsH2.classList.contains('d-none'))){
                     noNewsH2.classList.add('d-none');
                 }
@@ -242,19 +251,21 @@ for(let index of tags) {
 //bookmarks click array
 const bookMarksClick = [];
 
-// select the select element and eleaborating input
+// select the 'select' tag and eleaborating input passed
 const typesSelectEl = document.getElementById('main_select');
 
 typesSelectEl.addEventListener('click', function(e){
+    //prevent the page to recharge and lose data
     e.preventDefault();
 
+    //converting input into string
     let value = e.target.value;
-
+    
     value = value.toLowerCase();
 
     console.log(value);
 
-    /*if(containerEl != '' && value === 'tutti i tags' || containerEl == '' && value === 'tutti i tags'){*/
+    //making 'tutti i tag' option to create cards and make h2 news disappear
     if(containerEl.innerHTML !== '' && value === '' || containerEl.innerHTML === '' && value === ''){
         
         const noNewsH2 = document.getElementById('id_news');
@@ -268,13 +279,22 @@ typesSelectEl.addEventListener('click', function(e){
         for(let index of tags) {
             cardMaker(index);
         };
-    }
+    }   //passing all values differents from 'tuti i tag'
     else if(value !== 'tutti i tags'){
         cardReMaker(value);
     }
-    
-    // if(value !== 'tutti i tags'){
-    //     cardReMaker(value);
-    // }
 })
+
+
+//select the 'input' tag and elaborating input passed
+const savedNewsCheckBox = document.getElementById('checkbox1');
+
+savedNewsCheckBox.addEventListener('click', function(e){
+   
+    //prevents the page to recharge and lose datas 
+    e.preventDefault();
+
+
+
+});
 
