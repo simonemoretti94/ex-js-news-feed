@@ -51,7 +51,7 @@ const tags = [
             <div class="card-header pb-0">
                 <div class="wrapper col-12 d-flex flex-row">
                     <p id="title" class="col-11 mb-1">${objectEl.title}</p>
-                    <i id="${objectEl.tags}" class="col-1 fa-regular fa-bookmark" onclick="bookmarkslistener(this.id)"></i>
+                    <i id="${objectEl.id}" class="col-1 fa-regular fa-bookmark" onclick="bookmarkslistener(this.id)"></i>
                 </div>
                 <p id="author" class="col-12 mb-0">pubblicato da ${objectEl.author}</p>
                 <p id="published" class="col-12" >in data ${objectEl.published}</p>
@@ -179,7 +179,6 @@ const tags = [
     function bookmarkslistener(id){
         console.log('BOOKMARKSLISTENERf says: received id: ', id);
 
-        const temptag = id[0].split(',');
 
         //changing bookmark icon's class
         const tempI = document.getElementById(id);
@@ -282,21 +281,35 @@ const tags = [
     function clickevent(value){
         clickcounter++;
 
-        console.log('CLICKCOUNTERf says: value passed: ', value);
+        console.log('CLICKCOUNTERf says: value passed: ', value); //value is a string
 
         console.log( 'click counter: ', clickcounter);
 
-        if(clickcounter % 2 !== 0) {
-
+        for(let index of tags){
+            const temparraytag = [];
+            temparraytag.push(index.tags);
+            console.log('index tags: ', temparraytag);
             if(bookMarksClick === undefined || bookMarksClick.length == 0){
             }
-            else if(bookMarksClick.contains(value)){
+            else if (temparraytag.includes(value)){
                 return value;
             }
             else{
                 return '';
             }
         }
+
+        // if(clickcounter % 2 !== 0) {
+
+        //     if(bookMarksClick === undefined || bookMarksClick.length == 0){
+        //     }
+        //     else if(bookMarksClick.contains(value)){
+        //         return value;
+        //     }
+        //     else{
+        //         return '';
+        //     }
+        // }
     }
 
 
