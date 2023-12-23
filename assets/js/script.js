@@ -45,8 +45,6 @@ const tags = [
  */
     function cardMaker (objectEl, ...forCounter) {
 
-        
-
         //creating template literal
         const cardEl = `
         <div class="card col-12 pt-2 mt-4">
@@ -181,6 +179,8 @@ const tags = [
     function bookmarkslistener(id){
         console.log('BOOKMARKSLISTENERf says: received id: ', id);
 
+        const temptag = id[0].split(',');
+
         //changing bookmark icon's class
         const tempI = document.getElementById(id);
         console.log('BOOKMARKSLISTENERf says: tempI classlist:', tempI.classList);
@@ -298,8 +298,6 @@ const tags = [
             }
         }
     }
-
-
 
 
 /* WORKING SCRIPT STARTS HERE */
