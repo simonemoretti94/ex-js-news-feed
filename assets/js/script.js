@@ -45,13 +45,15 @@ const tags = [
  */
     function cardMaker (objectEl, ...forCounter) {
 
+        
+
         //creating template literal
         const cardEl = `
         <div class="card col-12 pt-2 mt-4">
             <div class="card-header pb-0">
                 <div class="wrapper col-12 d-flex flex-row">
                     <p id="title" class="col-11 mb-1">${objectEl.title}</p>
-                    <i id="bookmark${objectEl.id}" class="col-1 fa-regular fa-bookmark" onclick="bookmarkslistener(this.id)"></i>
+                    <i id="${objectEl.tags}" class="col-1 fa-regular fa-bookmark" onclick="bookmarkslistener(this.id)"></i>
                 </div>
                 <p id="author" class="col-12 mb-0">pubblicato da ${objectEl.author}</p>
                 <p id="published" class="col-12" >in data ${objectEl.published}</p>
@@ -199,7 +201,48 @@ const tags = [
         console.log('BOOKMARKSLISTENERf says: array log: ', bookMarksClick);
     };
 
+    //select event listener
+
+        /**
+     * receives click input from acting on select tag into the DOM
+     */
+    function typeSelector(){
+        typesSelectEl.addEventListener('click', function(e){
+            //prevent the page to recharge and lose data
+            e.preventDefault();
+
+            //converting input into string
+            let value = e.target.value;
+            
+            value = value.toLowerCase();
+
+            console.log(value);
+
+            //making 'tutti i tag' option to create cards and make h2 news disappear
+            if(containerEl.innerHTML !== '' && value === '' || containerEl.innerHTML === '' && value === ''){
+                
+                const noNewsH2 = document.getElementById('id_news');
+
+                if(!noNewsH2.classList.contains('d-none')){
+                    noNewsH2.classList.add('d-none');
+                }
+
+                containerEl.innerHTML = '';
+
+                for(let index of tags) {
+                    cardMaker(index);
+                };
+            }   //passing all values differents from 'tuti i tag'
+            else if(value !== 'tutti i tags'){
+                cardReMaker(value);
+            }
+        })
+    };
+
+
     
+    //card remaker function
+
     /**
      * 
      * @param {string} value input received from tag select
@@ -207,6 +250,8 @@ const tags = [
      */
     function cardReMaker(value){
         const noNewsH2 = document.getElementById('id_news');
+
+        clickevent(value);
 
         //makes h2 news appear
         if(value === 'politica'){
@@ -227,6 +272,33 @@ const tags = [
             }
         }
     };
+
+
+    //checkbox click event function
+
+    /**
+     * receives input from checkbox, then creates cards filtering saved elements and select option
+     */
+    function clickevent(value){
+        clickcounter++;
+
+        console.log('CLICKCOUNTERf says: value passed: ', value);
+
+        console.log( 'click counter: ', clickcounter);
+
+        if(clickcounter % 2 !== 0) {
+
+            if(bookMarksClick === undefined || bookMarksClick.length == 0){
+            }
+            else if(bookMarksClick.contains(value)){
+                return value;
+            }
+            else{
+                return '';
+            }
+        }
+    }
+
 
 
 
@@ -254,47 +326,7 @@ const bookMarksClick = [];
 // select the 'select' tag and eleaborating input passed
 const typesSelectEl = document.getElementById('main_select');
 
-typesSelectEl.addEventListener('click', function(e){
-    //prevent the page to recharge and lose data
-    e.preventDefault();
-
-    //converting input into string
-    let value = e.target.value;
-    
-    value = value.toLowerCase();
-
-    console.log(value);
-
-    //making 'tutti i tag' option to create cards and make h2 news disappear
-    if(containerEl.innerHTML !== '' && value === '' || containerEl.innerHTML === '' && value === ''){
-        
-        const noNewsH2 = document.getElementById('id_news');
-
-        if(!noNewsH2.classList.contains('d-none')){
-            noNewsH2.classList.add('d-none');
-        }
-
-        containerEl.innerHTML = '';
-
-        for(let index of tags) {
-            cardMaker(index);
-        };
-    }   //passing all values differents from 'tuti i tag'
-    else if(value !== 'tutti i tags'){
-        cardReMaker(value);
-    }
-})
 
 
-//select the 'input' tag and elaborating input passed
-const savedNewsCheckBox = document.getElementById('checkbox1');
-
-savedNewsCheckBox.addEventListener('click', function(e){
-   
-    //prevents the page to recharge and lose datas 
-    e.preventDefault();
-
-
-
-});
-
+//clickeventcounter
+let clickcounter = 0;
