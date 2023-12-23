@@ -250,7 +250,7 @@ const tags = [
     function cardReMaker(value){
         const noNewsH2 = document.getElementById('id_news');
 
-        clickevent(value);
+        //const selectAndSavedValues = clickevent(value);
 
         //makes h2 news appear
         if(value === 'politica'){
@@ -287,8 +287,8 @@ const tags = [
 
         for(let index of tags){
             const temparraytag = [];
-            temparraytag.push(index.tags);
-            console.log('index tags: ', temparraytag);
+            temparraytag.push(index.tags); //adding index object tags
+            console.log('CLICKEVENTf : index tags: ', temparraytag); //log array containing tags
             if(bookMarksClick === undefined || bookMarksClick.length == 0){
             }
             else if (temparraytag.includes(value)){
