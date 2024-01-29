@@ -214,21 +214,21 @@ function typeSelector(selectvalue) {
  * @param {boolean} checkBoxValue boolean value true or false from DOM's checkbox
  */
 function checkAndSelectCardMaker(selectvalue, checkBoxValue) {
-    // Filtra l'array di cards in base al tag selezionato e al valore del checkbox
+    // Array filtering based on "selectvalue"
 
     let filteredCards = tags.filter(card => {
 
-        // Controlla se il tag selezionato è presente nell'array di tag della card
+        //Checking if "selectvalue" is present into card's tag property
         let isTagPresent = card.tags.includes(selectvalue);
 
         console.log('isTagPresent: ', isTagPresent);
 
-        // Se il checkbox è selezionato, controlla anche se l'id della card è presente nell'array bookMarksClick
+        // //if checkbox ist "true", let's check if the card's id is present inside bookMarksClick array
         if (checkBoxValue == true) {
             return isTagPresent || bookMarksClick.includes(card.id);
         }
         else {
-            // Altrimenti, restituisce solo le cards che hanno il tag selezionato
+            //Otherwise, it returns only cards with specified tag
             return isTagPresent;
         }
     });
