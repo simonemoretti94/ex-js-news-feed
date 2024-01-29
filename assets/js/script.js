@@ -51,7 +51,7 @@ function cardMaker(objectEl, index) {
             <div class="card-header pb-0">
                 <div class="wrapper col-12 d-flex flex-row">
                     <p id="title" class="col-11 mb-1">${objectEl.title}</p>
-                    <i id="${index}" class="col-1 fa-regular fa-bookmark""></i>
+                    <i id="${objectEl.id}" class="col-1 fa-regular fa-bookmark""></i>
                 </div>
                 <p id="author" class="col-12 mb-0">pubblicato da ${objectEl.author}</p>
                 <p id="published" class="col-12" >in data ${objectEl.published}</p>
@@ -221,15 +221,19 @@ function checkAndSelectCardMaker(selectvalue, checkBoxValue) {
         // Controlla se il tag selezionato è presente nell'array di tag della card
         let isTagPresent = card.tags.includes(selectvalue);
 
+        console.log('isTagPresent: ', isTagPresent);
+
         // Se il checkbox è selezionato, controlla anche se l'id della card è presente nell'array bookMarksClick
         if (checkBoxValue == true) {
-            return isTagPresent && bookMarksClick.includes(card.id);
+            return isTagPresent || bookMarksClick.includes(card.id);
         }
         else {
             // Altrimenti, restituisce solo le cards che hanno il tag selezionato
             return isTagPresent;
         }
     });
+
+    console.log('filtered Cards: ', filteredCards);
 
     containerEl.innerHTML = '';
 
