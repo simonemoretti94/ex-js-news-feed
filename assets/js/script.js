@@ -171,6 +171,8 @@ function typeSelector(selectvalue) {
 
     let tempVal = selectvalue.toLowerCase();
 
+    containerEl.innerHTML = ''
+
     if (selectvalue === '') {
         //if (tutti i tags) prints every card
         tags.forEach((objectElement, index) => {
