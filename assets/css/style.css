@@ -1,0 +1,94 @@
+/* style */
+
+/* basic parameters */
+
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+    --bg-body-and-bookmark : #023047;
+    --bg-btn-green-custom: #008001;
+    --bg-btn-blue-custom: #000080;
+    --bg-btn-violet-custom: #800080;
+    --bg-btn-beige-custom: #f3a360;
+    --bg-btn-yellow-custom: #ffd601;
+    --bg-option-hover: #f37a35;
+}
+
+/* style */
+
+/* body {
+    background-color: var(--bg-body-and-bookmark);
+    width: 100vw;
+    height: 100vh;
+} */
+
+html {
+    background-color: var(--bg-body-and-bookmark);
+}
+
+main {
+    background-color: var(--bg-body-and-bookmark);
+    overflow-x: none;
+    overflow-y: scroll;
+}
+
+#btn-geo {
+    background-color: var(--bg-btn-green-custom);
+}
+
+#btn-tech {
+    background-color: var(--bg-btn-blue-custom);
+}
+
+#btn-cucina {
+    background-color: var(--bg-btn-violet-custom);
+}
+
+#btn-viaggi {
+    background-color: var(--bg-btn-beige-custom);
+}
+
+#btn-arte {
+    background-color: var(--bg-btn-yellow-custom);
+}
+
+i {
+    color: var(--bg-body-and-bookmark);
+    text-align: right;
+    font-size: 1.5rem;
+}
+
+option:hover {
+    background-color: var(--bg-option-hover);
+}
+
+/* <select onfocus='this.size=10;' onblur='this.size=0;' onchange='this.size=1; this.blur();'> */
+
+p#title {
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+p#author {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+p#published {
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+p#content {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+select {
+    text-transform: lowercase;
+}

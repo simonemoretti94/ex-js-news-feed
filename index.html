@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!--media query-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--stylesheet-->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/media_query.css">
+
+    <!-- bootstrap css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- bootstrap javascript-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"
+        defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"
+        defer></script>
+
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <!--favourite icon-->
+    <link rel="icon" href="./assets/img/favicon.svg">
+
+    <!--javascript-->
+    <script src="./assets/js/script.js" defer></script>
+
+    <title>ex-js-news-feed</title>
+</head>
+
+<body>
+
+    <main id="site_main">
+
+        <h1 class="text-white text-center text-capitalize align-self-center mt-3" style="font-weight: bolder;">news feed
+        </h1>
+
+
+        <div id="selectors"
+            class="col-6 d-flex justify-content-between flex-row align-items-center align-content-center mt-3 mb-auto mx-auto bg-white border rounded-2"
+            style="height: 80px;">
+            <div class="wrapper col-5 d-flex justify-content-start align-items-start ms-4">
+                <p class="me-1" style="font-size: 1rem; text-align: right; width: auto;">Filtra per tags:</p>
+                <select id="main_select" class="col-4 text-center mt-1" name="tags" onclick="typeSelector(this.value)"
+                    style="font-size: .8rem; font-weight: 600;">
+                    <option value="">Tutti i tags</option>
+                    <option id="politica" value="Politica">Politica</option>
+                    <option id="geo" value="Geo">Geo</option>
+                    <option id="tech" value="Tech">Tech</option>
+                    <option id="viaggi " value="Viaggi">Viaggi</option>
+                    <option id="cucina" value="Cucina">Cucina</option>
+                </select>
+            </div>
+
+            <div class="wrapper col-5 d-flex justify-content-end align-items-start me-4">
+                <input id="checkbox1" class="col-1 mt-1" type="checkbox">
+                <p class=" ms-0 ps-0" style="font-size: 1rem; text-align: right; width:auto;">Solo news salvate</p>
+            </div>
+
+        </div>
+
+        <div id="main_container" class="container col-6 my-3 mx-auto d-flex flex-column p-0">
+
+            <!-- javascript code is injected here -->
+
+        </div>
+
+        <div class="container col-6 my-3 mx-auto d-flex flex-row p-0 justify-content-start ">
+            <h2 id="id_news" class="d-none text-white" style="text-align: left; font-weight: bold;">No news available.
+            </h2>
+        </div>
+
+    </main>
+    <!-- /#site_main -->
+
+</body>
+
+</html>
