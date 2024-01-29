@@ -45,6 +45,8 @@ const tags = [
  */
 function cardMaker(objectEl, index) {
 
+    const europeanDate = dateReverser(objectEl.published);
+
     //creating template literal
     const cardEl = `
         <div class="card col-12 pt-2 mt-4">
@@ -54,7 +56,7 @@ function cardMaker(objectEl, index) {
                     <i id="${objectEl.id}" class="col-1 fa-regular fa-bookmark""></i>
                 </div>
                 <p id="author" class="col-12 mb-0">pubblicato da ${objectEl.author}</p>
-                <p id="published" class="col-12" >in data ${objectEl.published}</p>
+                <p id="published" class="col-12" >in data ${europeanDate}</p>
                 <p id="content" class="col-12  mb-0">${objectEl.content}</p>
             </div>
             <div id="card-body${objectEl.id}" class="card-body">
@@ -75,6 +77,16 @@ function cardMaker(objectEl, index) {
     /* END CARD STRUCTURING */
 
 };
+
+//card date converter
+
+function dateReverser(stringDate) {
+
+    //splitting string, reversing it and then rejoining in eu version
+    const europeanDate = stringDate.split("-").reverse().join("-");
+
+    return europeanDate;
+}
 
 //card tag creator
 
